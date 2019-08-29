@@ -1,6 +1,6 @@
 import Interface from './modules/interface';
 import UIManager from './modules/ui/uiManager';
-import Networker from './modules/networking/networker';
+// import Networker from './modules/networking/networker';
 
 const SERVERURL = 'https://kobert.dev/api/login';
 

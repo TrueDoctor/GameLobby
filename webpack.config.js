@@ -5,37 +5,38 @@ const HtmlMinifierPlugin = require('html-minifier-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const mode = 'production';
-const srcPath = './WebInterface/src/';
-const distPath = './WebInterface/dist/';
+const srcFolder = './WebInterface/src/';
+const distFolder = './WebInterface/dist/';
 
 const JSPaths = [
-//  {path: 'js/', name: 'index'},
-//  {path: 'js/', name: 'about'},
-//  {path: 'js/', name: 'play'},
+  {srcpath: 'js/', path: 'js/', name: 'index'},
+//  {srcpath: 'js/', path: 'js/', name: 'about'},
+//  {srcpath: 'js/', path: 'js/', name: 'play'},
 ];
 const HTMLPaths = [
-  {path: 'html/', name: 'index'},
-  {path: 'html/about/', name: 'index'},
-  {path: 'html/play/', name: 'index'},
+  {srcpath: 'html/', path: '', name: 'index'},
+  {srcpath: 'html/about/', path: 'about/', name: 'index'},
+  {srcpath: 'html/play/', path: 'play/', name: 'index'},
 ];
 const SASSPaths = [
-  {path: 'styles/', name: 'index'},
-  {path: 'styles/', name: 'about'},
-  {path: 'styles/', name: 'play'},
+  {srcpath: 'styles/', path: 'styles/', name: 'index'},
+  {srcpath: 'styles/', path: 'styles/', name: 'about'},
+  {srcpath: 'styles/', path: 'styles/', name: 'play'},
 ];
 
 let exp = [];
 
 // JS
 for (let pathElt of JSPaths) {
+  const srcpth = pathElt.srcpath;
   const pth = pathElt.path;
   const name = pathElt.name;
   const settings = {
     mode: mode,
-    entry: srcPath + pth + name + '.js',
+    entry: srcFolder + srcpth + name + '.js',
     output: {
       filename: name + '.js',
-      path: path.resolve(__dirname, distPath + pth),
+      path: path.resolve(__dirname, distFolder + pth),
     },
   };
 
@@ -44,14 +45,15 @@ for (let pathElt of JSPaths) {
 
 // HTML
 for (let pathElt of HTMLPaths) {
+  const srcpth = pathElt.srcpath;
   const pth = pathElt.path;
   const name = pathElt.name;
   const settings = {
     mode: mode,
-    entry: srcPath + pth + name + '.html',
+    entry: srcFolder + srcpth + name + '.html',
     output: {
       filename: '_placeholder.js',
-      path: path.resolve(__dirname, distPath + pth),
+      path: path.resolve(__dirname, distFolder + pth),
     },
     module: {
       rules: [{
@@ -76,14 +78,15 @@ for (let pathElt of HTMLPaths) {
 
 // SASS
 for (let pathElt of SASSPaths) {
+  const srcpth = pathElt.srcpath;
   const pth = pathElt.path;
   const name = pathElt.name;
   const settings = {
     mode: mode,
-    entry: srcPath + pth + name + '.scss',
+    entry: srcFolder + srcpth + name + '.scss',
     output: {
       filename: '_placeholder.js',
-      path: path.resolve(__dirname, distPath + pth),
+      path: path.resolve(__dirname, distFolder + pth),
     },
     module: {
       rules: [{
