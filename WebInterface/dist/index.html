@@ -1,1 +1,54 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="description" content="Game-Lobby"><meta name="author" content="Timon Scholz"><meta name="theme-color" content="#546e7a"><title>Game Lobby</title><link rel="icon" href="../ressources/logo.png"><link rel="stylesheet" href="../styles/index.css"><!-- <link rel="manifest" href="manifest.webmanifest"> --><link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Material+Icons" rel="stylesheet"></head><body><div class="backdrop"><div class="header-bar"><div class="menu-icon" id="show-menu"></div><h1 class="header">Spiele-Lobby</h1></div><div class="menu-actions hidden" id="menu"><a class="menu-option active" id="listing-tab" href="./">Spiele-Liste</a> <a class="menu-option" id="github-tab" href="https://github.com/TrueDoctor/DiscoBot" target="_blank">Projekt auf GitHub</a> <a class="menu-option" id="about-tab" href="about" target="_blank">About</a></div></div><div class="front-layer" id="front-layer"><div class="banner" id="notifications"><div class="notification-badge" id="notification-amount">1</div><p class="banner-text" id="banner-info">Loading javascript.</p><div class="btn-container"><button class="btn text-btn banner-button" id="dismiss-banner">Okay</button></div><hr></div><div class="server-listing"><h1>Aktive Spiele</h1><hr><div class="server-entries" id="server-list"></div><div class="button-container"><button id="new-game-button" class="btn">Spiel beginnen</button> <button id="refresh-button" class="btn text-btn refresh-btn">Aktualisieren</button></div></div><div class="copyright-container"><span>© 2019 [Placeholder]</span></div></div><script src="js/index.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="description" content="Game-Lobby"><meta name="author" content="Timon Scholz"><meta name="theme-color" content="#546e7a"><title>Spiele-Lobby</title><link rel="icon" href="../ressources/logo.png"><link rel="stylesheet" href="../styles/index.css"><!-- <link rel="manifest" href="manifest.webmanifest"> --><link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Material+Icons" rel="stylesheet"></head><body><aside class="mdc-drawer mdc-drawer--dismissible"><div class="mdc-drawer__content"><div class="mdc-list"><a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i> <span class="mdc-list-item__text">Inbox</span> </a><a class="mdc-list-item" href="#"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i> <span class="mdc-list-item__text">Outgoing</span> </a><a class="mdc-list-item" href="#"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i> <span class="mdc-list-item__text">Drafts</span></a></div></div></aside><div class="mdc-drawer-app-content"><header class="mdc-top-app-bar"><div class="mdc-top-app-bar__row"><section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"><button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button> <span class="mdc-top-app-bar__title">Spiele-Lobby</span></section></div></header><main class="main-content" id="main-content"><div class="mdc-top-app-bar--fixed-adjust">App Content</div><div class="copyright-container"><span>© 2019 [Placeholder]</span></div></main></div><!-- <div class="backdrop">
+      <div class="header-bar">
+        <div class="menu-icon" id="show-menu"></div>
+        <h1 class="header">Spiele-Lobby</h1>
+      </div>
+      <div class="menu-actions hidden" id="menu">
+        <a class="menu-option active" id="listing-tab" href="./">Spiele-Liste</a>
+        <a class="menu-option" id="github-tab" href="https://github.com/TrueDoctor/DiscoBot" target="_blank">Projekt auf GitHub</a>
+        <a class="menu-option" id="about-tab" href="about" target="_blank">About</a>
+      </div>
+    </div>
+    <div class="front-layer" id="front-layer">
+      <div class="banner" id="notifications">
+        <div class="notification-badge" id="notification-amount">1</div>
+        <p class="banner-text" id="banner-info">Loading javascript.</p>
+        <div class="btn-container">
+          <button class="btn text-btn banner-button" id="dismiss-banner">Okay</button>
+        </div>
+        <hr>
+      </div>
+      <div class="server-listing">
+        <div class="mdc-tab-bar" role="tablist">
+          <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+              <div class="mdc-tab-scroller__scroll-content">
+                <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
+                    <span class="mdc-tab__text-label">Favorites</span>
+                  </span>
+                  <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h1>Aktive Spiele</h1>
+        <hr>
+        <div class="server-entries" id="server-list">
+
+        </div>
+        <div class="button-container">
+          <button id="new-game-button" class="btn">
+            Spiel beginnen
+          </button>
+          <button id="refresh-button" class="btn text-btn refresh-btn">
+            Aktualisieren
+          </button>
+        </div>
+
+      </div> --><script src="js/index.js" async></script></body></html>

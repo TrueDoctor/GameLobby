@@ -1,5 +1,10 @@
 @import 'colors';
 
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/icon-button/mdc-icon-button";
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
+
 html,body {
   height: 100vh;
   margin: 0;
@@ -7,14 +12,41 @@ html,body {
   font-family: 'Roboto', sans-serif;
   font-display: swap;
   overflow: hidden;
-  background-color: $primary;
-  color: $primary-text;
+//   background-color: $primary;
+//   color: $primary-text;
   user-select: none;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  background-color: $secondary;
+//   background-color: $secondary;
+//   position: relative;
+}
+
+.copyright-container {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  margin: 4px;
+  bottom: 0;
+  text-align: center;
+}
+
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
+}
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.app-bar {
+  position: absolute;
 }

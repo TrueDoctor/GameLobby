@@ -1,10 +1,16 @@
+@import 'partials/colors';
 @import 'partials/base';
-@import 'partials/btn';
-@import 'partials/backdrop/base';
-@import 'partials/backdrop/menu';
-@import 'partials/front-layer/base';
-@import 'partials/front-layer/notifications';
-@import 'partials/front-layer/server-listing';
-@import 'partials/front-layer/copyright';
-@import 'partials/modal/base';
-@import 'partials/modal/login';
+// @import 'partials/btn';
+// @import 'partials/backdrop/base';
+// @import 'partials/backdrop/menu';
+// @import 'partials/front-layer/base';
+// @import 'partials/front-layer/notifications';
+// @import 'partials/front-layer/server-listing';
+// @import 'partials/front-layer/copyright';
+// @import 'partials/modal/base';
+// @import 'partials/modal/login';
+
+@import "@material/tab-bar/mdc-tab-bar";
+@import "@material/tab-scroller/mdc-tab-scroller";
+@import "@material/tab-indicator/mdc-tab-indicator";
+@import "@material/tab/mdc-tab";
