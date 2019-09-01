@@ -14,3 +14,16 @@
 @import "@material/tab-scroller/mdc-tab-scroller";
 @import "@material/tab-indicator/mdc-tab-indicator";
 @import "@material/tab/mdc-tab";
+
+.game-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.games-listing {
+
+  &.hidden {
+    display: none;
+  }
+}
