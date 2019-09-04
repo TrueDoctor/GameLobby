@@ -29,7 +29,7 @@ export default class UIManager {
   /**
    * Initializes UI Components of Login page
    */
-  initLogin() {
+  initLobby() {
     this.clearComponents();
     this.login = new Login(this.iface);
     this.currentUI = 'login';

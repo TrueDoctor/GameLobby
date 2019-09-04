@@ -40,6 +40,9 @@
             <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
             <span class="mdc-top-app-bar__title">Spiele-Lobby</span>
           </section>
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <button id="refresh-btn" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Refresh">replay</button>
+          </section>
         </div>
       </header>
 
@@ -59,7 +62,7 @@
                     </span>
                     <span class="mdc-tab__ripple"></span>
                   </button>
-                  <button class="mdc-tab" role="tab" aria-selected="false" tabindex="1">
+                  <button class="mdc-tab" role="tab" aria-selected="false">
                     <span class="mdc-tab__content">
                       <img class="game-icon" width="24" height="24" src="../ressources/icon_ratatosk.png">
                       <span class="mdc-tab__text-label">Ratatosk</span>
@@ -75,11 +78,15 @@
           </div>
 
           <div class="games-listing" id="listing_0">
-            Hello World
+            <ul class="game-list mdc-list" id="games-list-dsa" type="dsa">
+
+            </ul>
           </div>
 
           <div class="games-listing hidden" id="listing_1">
-            Lorem ipsum
+            <ul class="game-list mdc-list" id="games-list-dsa" type="ratatosk">
+
+            </ul>
           </div>
 
 

@@ -28,7 +28,7 @@ export default class Networker {
     let data = {
       "games": [
         {"name": "server_1", "playerNum": 3, "maxPlayers": 2, "hasPassword": false, "type": "ratatosk"},
-        {"name": "foo", "playerNum": 0, "maxPlayers": 2,  "hasPassword": true, "type": "ratatosk"},
+        {"name": "foo", "playerNum": 0, "maxPlayers": 2,  "hasPassword": true, "type": "dsa"},
         {"name": "bar", "playerNum": 1000000, "maxPlayers": 2,  "hasPassword": true, "type": "ratatosk"}
       ]
     };

@@ -5,11 +5,11 @@ export default class ServerListing {
   /**
    * Creates reference to container
    * @param {Interface} iface Interface for comm. with other objects
-   * @param {string} serverListId ID of the server list div
+   * @param {string} serverListClass Class name of the server lists ul
    * @param {string} refreshBtnId ID of the refresh btn
    */
-  constructor(iface, serverListId, refreshBtnId) {
-    this.ids = {serverListId, refreshBtnId};
+  constructor(iface, serverListClass, refreshBtnId) {
+    this.ids = {serverListClass, refreshBtnId};
 
     iface.addObject(this, 'serverListing', ['flushElements', 'addElements']);
     this.iface = iface;
@@ -19,7 +19,12 @@ export default class ServerListing {
    * Initializes Server List DOM Element
    */
   initialize() {
-    this.serverListing = document.getElementById(this.ids.serverListId);
+    this.allServerLists = [...document.getElementsByClassName(this.ids.serverListClass)];
+    this.serverListings = {}
+    for (let list of this.allServerLists) {
+      this.serverListings[list.getAttribute('type')] = list;
+    }
+
     this.refreshBtn = document.getElementById(this.ids.refreshBtnId);
     this.registerEvents();
   }
@@ -44,7 +49,9 @@ export default class ServerListing {
    * Removes all elements currently in the server listing
    */
   flushElements() {
-    this.serverListing.innerHTML = '';
+    for (let list of this.allServerLists) {
+      list.innerHTML = '';
+    }
   }
 
   /**
@@ -57,38 +64,32 @@ export default class ServerListing {
       const playerAmount = server['playerNum'];
       const playerMax = server['maxPlayers'];
       const hasPassword = server['hasPassword'];
+      const type = server['type'];
 
-      let serverDiv = document.createElement('div');
+      let item = document.createElement('li');
+      let lockIconSpan = document.createElement('span');
       let nameSpan = document.createElement('span');
-      let rightAlignDiv = document.createElement('div');
-      let locked = document.createElement('div');
-      let playerCountSpan = document.createElement('span');
-      let playerCountStaticSpan = document.createElement('span');
-      let joinButton = document.createElement('button');
-      serverDiv.className = 'server';
-      nameSpan.className = 'server-name';
-      rightAlignDiv.className = 'right-aligned-items';
-      locked.className = 'lock-icon';
-      playerCountSpan.className = 'player-count';
-      playerCountStaticSpan.className = 'player-count-static';
-      joinButton.className = 'btn join-btn';
-      joinButton.id = 'join';
+      let playerSpan = document.createElement('span');
+
+      item.classList.add('mdc-list-item');
+      lockIconSpan.classList.add('mdc-list-item__graphic');
+      lockIconSpan.classList.add('material-icons');
+      lockIconSpan.setAttribute('aria-hidden', 'true');
+      nameSpan.classList.add('mdc-list-item__text');
+      playerSpan.classList.add('mdc-list-item__meta');
+
       nameSpan.textContent = name;
-      playerCountSpan.textContent = playerAmount.toString() + ' / ' + playerMax.toString();
-      playerCountStaticSpan.textContent = 'Spieler online';
-      locked.innerHTML = hasPassword ? '<i class="material-icons">lock</i>' : '<i class="material-icons">lock_open</i>';
-      joinButton.textContent = 'Beitreten';
-      joinButton.addEventListener('click', () => {
+      lockIconSpan.innerHTML = hasPassword ? 'lock' : 'lock_open';
+      playerSpan.textContent = playerAmount.toString() + ' / ' + playerMax.toString();
+
+      item.addEventListener('click', () => {
         this.iface.callMethod('login', 'showLogin', name);
       });
 
-      rightAlignDiv.appendChild(playerCountSpan);
-      rightAlignDiv.appendChild(playerCountStaticSpan);
-      rightAlignDiv.appendChild(locked);
-      rightAlignDiv.appendChild(joinButton);
-      serverDiv.appendChild(nameSpan);
-      serverDiv.appendChild(rightAlignDiv);
-      this.serverListing.appendChild(serverDiv);
+      item.appendChild(lockIconSpan);
+      item.appendChild(nameSpan);
+      item.appendChild(playerSpan);
+      this.serverListings[type].appendChild(item);
     }
   }
 }
