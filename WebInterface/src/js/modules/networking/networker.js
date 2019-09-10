@@ -22,6 +22,7 @@ export default class Networker {
   getServers() {
     if (this.refreshing) return;
     this.refreshing = true;
+    this.iface.callMethod('serverListing', 'startLoadingAnimation');
 
     fetch(process.env.API_URL)
       .then(response => response.json())

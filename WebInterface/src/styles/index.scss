@@ -1,5 +1,6 @@
 @import 'partials/colors';
 @import 'partials/base';
+@import 'partials/spinner';
 
 @import "@material/tab-bar/mdc-tab-bar";
 @import "@material/tab-scroller/mdc-tab-scroller";
@@ -13,9 +14,31 @@
   margin-right: 8px;
 }
 
-.games-listing {
+#content-area {
+  height: 100%;
+}
 
-  &.hidden {
-    display: none;
+#games-lists {
+  height: calc(100% - 140px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  .games-listing {
+    transition: top 300ms ease;
+    position: relative;
+    top: 0;
+
+    &.hidden {
+      display: none;
+    }
+
+    &.loading {
+      top: 100vh;
+    }
   }
+}
+
+.mdc-list-item__meta {
+  white-space: nowrap;
 }

@@ -15,7 +15,7 @@ export default class ServerListing {
   constructor(iface, tabBarId, gameListDivId, refreshBtnId) {
     this.ids = {tabBarId, gameListDivId, refreshBtnId};
 
-    iface.addObject(this, 'serverListing', ['flushElements', 'addElements', 'addCategories']);
+    iface.addObject(this, 'serverListing', ['flushElements', 'addElements', 'addCategories', 'startLoadingAnimation']);
     this.iface = iface;
   }
 
@@ -56,6 +56,13 @@ export default class ServerListing {
   }
 
   /**
+   * Replaces lists with loader
+   */
+  startLoadingAnimation() {
+    this.gameListDiv.innerHTML = '<svg class="spinner" width="127px" height="127px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><circle class="path" fill="none" stroke-width="10" stroke-linecap="round" cx="64" cy="64" r="59"></circle></svg>';
+  }
+
+  /**
    * Populates Tab Bar with game categories, received from server
    * @param {object} data JSON-Data representing categories from server
    */
@@ -92,7 +99,8 @@ export default class ServerListing {
       tabIndicator.className = (i == 0) ? 'mdc-tab-indicator mdc-tab-indicator--active' : 'mdc-tab-indicator';
       tabIndicator.innerHTML = '<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>';
       tabRipple.className = 'mdc-tab__ripple';
-      gamesList.className = (i == 0) ? 'games-listing' : 'games-listing hidden';
+      gamesList.className = (i == 0) ? 'games-listing loading' : 'games-listing hidden';
+      if (i == 0) setTimeout(() => gamesList.className = 'games-listing', 0);
       gamesList.id = 'listing-' + i.toString();
       innerList.className = 'game-list mdc-list'
       innerList.id = 'games-list-' + category.name;
@@ -128,6 +136,21 @@ export default class ServerListing {
    * @param {array} Server List received from server
    */
   addElements(data) {
+    // TODO: REMOVE; JUST FOR STRESS TESTING
+    const l = data.length;
+    for (let i = 0; i < l; i++) {
+      for (let j = 0; j < 50; j++) data.push(data[i]);
+    }
+    data.push({
+      "name": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+      "userCount": 0,
+      "maxUsers": 5,
+      "hasPassword": true,
+      "type": "dsa",
+      "id": 0
+    });
+    // ------
+
     for (let server of data) {
       const name = server['name'];
       const playerAmount = server['userCount'];
