@@ -9,7 +9,7 @@ export default class Login {
    * @param {Interface} iface Interface to enable comm. with notifications
    */
   constructor(iface) {
-    this.serverListing = new ServerListing(iface, 'game-list',
+    this.serverListing = new ServerListing(iface, 'games-tab-bar', 'games-lists',
         'refresh-btn');
 
     this.serverListing.initialize();

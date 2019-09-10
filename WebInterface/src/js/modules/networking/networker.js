@@ -1,5 +1,3 @@
-import listUrl from '../../vars';
-
 /**
  * Class for communication to server
  */
@@ -25,19 +23,14 @@ export default class Networker {
     if (this.refreshing) return;
     this.refreshing = true;
 
-    let data = {
-      "games": [
-        {"name": "server_1", "playerNum": 3, "maxPlayers": 2, "hasPassword": false, "type": "ratatosk"},
-        {"name": "foo", "playerNum": 0, "maxPlayers": 2,  "hasPassword": true, "type": "dsa"},
-        {"name": "bar", "playerNum": 1000000, "maxPlayers": 2,  "hasPassword": true, "type": "ratatosk"}
-      ]
-    };
-    this.iface.callMethod('serverListing', 'flushElements');
-    this.iface.callMethod('serverListing', 'addElements', data);
-    this.refreshing = false;
-
-    // fetch(listUrl)
-    //   .then(response => response.json())
-    //   .then(data => this.iface.callMethod('serverListing', 'addElements', data));
+    fetch(process.env.API_URL)
+      .then(response => response.json())
+      .then(data => {
+        this.iface.callMethod('serverListing', 'flusElements');
+        this.iface.callMethod('serverListing', 'addCategories', data['gameTypes']);
+        this.iface.callMethod('serverListing', 'addElements', data['games']);
+        this.refreshing = false;
+      })
+      .catch(error => console.error('Error:', error));
   }
 }

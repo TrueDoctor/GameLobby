@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const cssNano = require('cssnano');
 const HtmlMinifierPlugin = require('html-minifier-webpack-plugin');
@@ -38,6 +39,13 @@ for (let pathElt of JSPaths) {
       filename: name + '.js',
       path: path.resolve(__dirname, distFolder + pth),
     },
+    plugins: [
+      new webpack.DefinePlugin({
+          'process.env': {
+              'API_URL': JSON.stringify('https://games.kobert.dev/api/lobby'),
+          }
+      }),
+    ],
   };
 
   exp.push(settings);

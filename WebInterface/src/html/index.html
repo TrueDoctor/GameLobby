@@ -47,49 +47,32 @@
       </header>
 
       <main class="main-content" id="main-content">
-        <div class="mdc-top-app-bar--fixed-adjust">
-          <div class="mdc-tab-bar" role="tablist">
-            <div class="mdc-tab-scroller">
-              <div class="mdc-tab-scroller__scroll-area">
-                <div class="mdc-tab-scroller__scroll-content">
-                  <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
-                    <span class="mdc-tab__content">
-                      <img class="game-icon" width="24" height="24" src="../ressources/icon_dsa.png">
-                      <span class="mdc-tab__text-label">DSA-Online</span>
-                    </span>
-                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                      <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                  </button>
-                  <button class="mdc-tab" role="tab" aria-selected="false">
-                    <span class="mdc-tab__content">
-                      <img class="game-icon" width="24" height="24" src="../ressources/icon_ratatosk.png">
-                      <span class="mdc-tab__text-label">Ratatosk</span>
-                    </span>
-                    <span class="mdc-tab-indicator">
-                      <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                  </button>
+        <div id="content-area">
+          <div class="mdc-top-app-bar--fixed-adjust">
+            <div class="mdc-tab-bar" role="tablist">
+              <div class="mdc-tab-scroller">
+                <div class="mdc-tab-scroller__scroll-area">
+                  <div class="mdc-tab-scroller__scroll-content" id="games-tab-bar">
+                    <!-- Gets populated by API call -->
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="games-listing" id="listing_0">
-            <ul class="game-list mdc-list" id="games-list-dsa" type="dsa">
+          <div id="games-lists">
+            <div class="games-listing" id="listing_0">
+              <ul class="game-list mdc-list" id="games-list-dsa" type="dsa">
 
-            </ul>
+              </ul>
+            </div>
+
+            <div class="games-listing hidden" id="listing_1">
+              <ul class="game-list mdc-list" id="games-list-dsa" type="ratatosk">
+
+              </ul>
+            </div>
           </div>
-
-          <div class="games-listing hidden" id="listing_1">
-            <ul class="game-list mdc-list" id="games-list-dsa" type="ratatosk">
-
-            </ul>
-          </div>
-
-
         </div>
         <div class="copyright-container">
           <span>© 2019 [Placeholder]</span>
