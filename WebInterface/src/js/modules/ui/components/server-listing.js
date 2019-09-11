@@ -74,6 +74,7 @@ export default class ServerListing {
     this.listContainers = [];
     this.allServerLists = [];
     this.serverListings = {};
+    this.types = {};
 
     for (let i = 0; i < data.length; i++) {
       const category = data[i];
@@ -119,6 +120,7 @@ export default class ServerListing {
       this.listContainers.push(gamesList);
       this.allServerLists.push(innerList);
       this.serverListings[category.name] = innerList;
+      this.types[category.name] = category.displayName;
 
       this.tabBar.appendChild(tabButton);
       this.gameListDiv.appendChild(gamesList);
@@ -179,7 +181,7 @@ export default class ServerListing {
       playerSpan.textContent = playerAmount.toString() + ' / ' + playerMax.toString();
 
       item.addEventListener('click', () => {
-        this.showLoginDialog(id, name);
+        this.showLoginDialog(id, name, type);
       });
 
       item.appendChild(lockIconSpan);
@@ -196,12 +198,13 @@ export default class ServerListing {
     }
   }
 
-  showLoginDialog(id, name) {
+  showLoginDialog(id, name, type) {
     if (this.dialogBox != undefined) document.querySelector('body').removeChild(this.dialogBox);
     this.dialogBox = document.createElement('div');
     const dialogContainer = document.createElement('div');
     const dialogSurface = document.createElement('div');
     const dialogTitle = document.createElement('h2');
+    const dialogSubtitle = document.createElement('span');
     const dialogContent = document.createElement('div');
     const userNameDiv = document.createElement('div');
     const userNameInput = document.createElement('input');
@@ -226,6 +229,8 @@ export default class ServerListing {
     dialogTitle.className = 'mdc-dialog__title';
     dialogTitle.id = 'login-title';
     dialogTitle.innerText = name;
+    dialogSubtitle.className = 'mdc-typography--subtitle1 mdc-theme--text-secondary-on-light';
+    dialogSubtitle.innerText = this.types[type];
     dialogContent.className = 'mdc-dialog__content';
     dialogContent.id = 'login-description';
     userNameDiv.className = 'mdc-text-field';
@@ -266,6 +271,8 @@ export default class ServerListing {
     dialogContent.appendChild(passwordDiv);
     dialogOptions.appendChild(loginButton);
     dialogOptions.appendChild(abortButton);
+    dialogTitle.appendChild(document.createElement('br'));
+    dialogTitle.appendChild(dialogSubtitle);
     dialogSurface.appendChild(dialogTitle);
     dialogSurface.appendChild(dialogContent);
     dialogSurface.appendChild(dialogOptions);

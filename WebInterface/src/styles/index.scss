@@ -10,6 +10,8 @@
 @import "@material/dialog/mdc-dialog";
 @import "@material/button/mdc-button";
 @import "@material/textfield/mdc-text-field";
+@import "@material/typography/mdc-typography";
+@import "@material/theme/mdc-theme";
 
 .game-icon {
   width: 24px;
@@ -46,6 +48,13 @@
   white-space: nowrap;
 }
 
+.mdc-dialog__title {
+  max-width: 50vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .mdc-text-field {
   margin-top: 8px;
+  width: 100%;
 }
