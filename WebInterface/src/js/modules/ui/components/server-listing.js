@@ -181,7 +181,7 @@ export default class ServerListing {
       playerSpan.textContent = playerAmount.toString() + ' / ' + playerMax.toString();
 
       item.addEventListener('click', () => {
-        this.showLoginDialog(id, name, type);
+        this.showLoginDialog(id, name, type, hasPassword);
       });
 
       item.appendChild(lockIconSpan);
@@ -198,7 +198,7 @@ export default class ServerListing {
     }
   }
 
-  showLoginDialog(id, name, type) {
+  showLoginDialog(id, name, type, needsPassword) {
     if (this.dialogBox != undefined) document.querySelector('body').removeChild(this.dialogBox);
     this.dialogBox = document.createElement('div');
     const dialogContainer = document.createElement('div');
@@ -241,14 +241,16 @@ export default class ServerListing {
     userNameLabel.setAttribute('for', 'username-input');
     userNameLabel.innerText = 'Name';
     userNameRipple.className = 'mdc-line-ripple';
-    passwordDiv.className = 'mdc-text-field';
-    passwordInput.setAttribute('type', 'password');
-    passwordInput.id = 'password-input';
-    passwordInput.className = 'mdc-text-field__input';
-    passwordLabel.className = 'mdc-floating-label';
-    passwordLabel.setAttribute('for', 'password-input');
-    passwordLabel.innerText = 'Serverpasswort';
-    passwordRipple.className = 'mdc-line-ripple';
+    if (needsPassword) {
+      passwordDiv.className = 'mdc-text-field';
+      passwordInput.setAttribute('type', 'password');
+      passwordInput.id = 'password-input';
+      passwordInput.className = 'mdc-text-field__input';
+      passwordLabel.className = 'mdc-floating-label';
+      passwordLabel.setAttribute('for', 'password-input');
+      passwordLabel.innerText = 'Serverpasswort';
+      passwordRipple.className = 'mdc-line-ripple';
+    }
     dialogOptions.className = 'mdc-dialog__actions';
     abortButton.setAttribute('type', 'button');
     abortButton.className = 'mdc-button mdc-dialog__button';
@@ -264,11 +266,13 @@ export default class ServerListing {
     userNameDiv.appendChild(userNameLabel);
     userNameDiv.appendChild(userNameRipple);
     dialogContent.appendChild(userNameDiv);
-    dialogContent.appendChild(document.createElement('br'));
-    passwordDiv.appendChild(passwordInput);
-    passwordDiv.appendChild(passwordLabel);
-    passwordDiv.appendChild(passwordRipple);
-    dialogContent.appendChild(passwordDiv);
+    if (needsPassword) {
+      dialogContent.appendChild(document.createElement('br'));
+      passwordDiv.appendChild(passwordInput);
+      passwordDiv.appendChild(passwordLabel);
+      passwordDiv.appendChild(passwordRipple);
+      dialogContent.appendChild(passwordDiv);
+    }
     dialogOptions.appendChild(loginButton);
     dialogOptions.appendChild(abortButton);
     dialogTitle.appendChild(document.createElement('br'));
@@ -281,7 +285,9 @@ export default class ServerListing {
     this.dialogBox.appendChild(scrim);
     document.querySelector('body').appendChild(this.dialogBox);
 
-    this.passwordField = new MDCTextField(passwordDiv);
+    if (needsPassword) {
+      this.passwordField = new MDCTextField(passwordDiv);
+    }
     this.dialog = new MDCDialog(this.dialogBox);
     this.dialog.open();
 
