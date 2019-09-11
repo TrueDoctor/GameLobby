@@ -1,4 +1,6 @@
 import {MDCTabBar} from '@material/tab-bar';
+import {MDCDialog} from '@material/dialog';
+import {MDCTextField} from '@material/textfield';
 import {MDCRipple} from "@material/ripple";
 
 /**
@@ -177,7 +179,7 @@ export default class ServerListing {
       playerSpan.textContent = playerAmount.toString() + ' / ' + playerMax.toString();
 
       item.addEventListener('click', () => {
-        this.iface.callMethod('login', 'showLogin', name);
+        this.showLoginDialog(id, name);
       });
 
       item.appendChild(lockIconSpan);
@@ -192,5 +194,90 @@ export default class ServerListing {
         console.error(e.toString());
       }
     }
+  }
+
+  showLoginDialog(id, name) {
+    if (this.dialogBox != undefined) document.querySelector('body').removeChild(this.dialogBox);
+    this.dialogBox = document.createElement('div');
+    const dialogContainer = document.createElement('div');
+    const dialogSurface = document.createElement('div');
+    const dialogTitle = document.createElement('h2');
+    const dialogContent = document.createElement('div');
+    const userNameDiv = document.createElement('div');
+    const userNameInput = document.createElement('input');
+    const userNameLabel = document.createElement('label');
+    const userNameRipple = document.createElement('div');
+    const passwordDiv = document.createElement('div');
+    const passwordInput = document.createElement('input');
+    const passwordLabel = document.createElement('label');
+    const passwordRipple = document.createElement('div');
+    const dialogOptions = document.createElement('footer');
+    const abortButton = document.createElement('button');
+    const loginButton = document.createElement('button');
+    const scrim = document.createElement('div');
+
+    this.dialogBox.className = "mdc-dialog";
+    this.dialogBox.setAttribute('role', 'dialog');
+    this.dialogBox.setAttribute('aria-modal', 'true');
+    this.dialogBox.setAttribute('aria-labelledby', 'login-title');
+    this.dialogBox.setAttribute('aria-describedby', 'login-description');
+    dialogContainer.className = 'mdc-dialog__container';
+    dialogSurface.className = 'mdc-dialog__surface';
+    dialogTitle.className = 'mdc-dialog__title';
+    dialogTitle.id = 'login-title';
+    dialogTitle.innerText = name;
+    dialogContent.className = 'mdc-dialog__content';
+    dialogContent.id = 'login-description';
+    userNameDiv.className = 'mdc-text-field';
+    userNameInput.setAttribute('type', 'text');
+    userNameInput.id = 'username-input';
+    userNameInput.className = 'mdc-text-field__input';
+    userNameLabel.className = 'mdc-floating-label';
+    userNameLabel.setAttribute('for', 'username-input');
+    userNameLabel.innerText = 'Name';
+    userNameRipple.className = 'mdc-line-ripple';
+    passwordDiv.className = 'mdc-text-field';
+    passwordInput.setAttribute('type', 'password');
+    passwordInput.id = 'password-input';
+    passwordInput.className = 'mdc-text-field__input';
+    passwordLabel.className = 'mdc-floating-label';
+    passwordLabel.setAttribute('for', 'password-input');
+    passwordLabel.innerText = 'Serverpasswort';
+    passwordRipple.className = 'mdc-line-ripple';
+    dialogOptions.className = 'mdc-dialog__actions';
+    abortButton.setAttribute('type', 'button');
+    abortButton.className = 'mdc-button mdc-dialog__button';
+    abortButton.setAttribute('data-mdc-dialog-action', 'cancel');
+    abortButton.innerText = 'Abbrechen';
+    loginButton.setAttribute('type', 'button');
+    loginButton.className = 'mdc-button mdc-dialog__button';
+    loginButton.setAttribute('data-mdc-dialog-action', 'accept');
+    loginButton.innerText = 'Beitreten';
+    scrim.className = 'mdc-dialog__scrim';
+
+    userNameDiv.appendChild(userNameInput);
+    userNameDiv.appendChild(userNameLabel);
+    userNameDiv.appendChild(userNameRipple);
+    dialogContent.appendChild(userNameDiv);
+    dialogContent.appendChild(document.createElement('br'));
+    passwordDiv.appendChild(passwordInput);
+    passwordDiv.appendChild(passwordLabel);
+    passwordDiv.appendChild(passwordRipple);
+    dialogContent.appendChild(passwordDiv);
+    dialogOptions.appendChild(loginButton);
+    dialogOptions.appendChild(abortButton);
+    dialogSurface.appendChild(dialogTitle);
+    dialogSurface.appendChild(dialogContent);
+    dialogSurface.appendChild(dialogOptions);
+    dialogContainer.appendChild(dialogSurface);
+    this.dialogBox.appendChild(dialogContainer);
+    this.dialogBox.appendChild(scrim);
+    document.querySelector('body').appendChild(this.dialogBox);
+
+    this.passwordField = new MDCTextField(passwordDiv);
+    this.dialog = new MDCDialog(this.dialogBox);
+    this.dialog.open();
+
+    // this.dialog.listen()
   }
 }

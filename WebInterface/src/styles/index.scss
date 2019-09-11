@@ -7,6 +7,9 @@
 @import "@material/tab-indicator/mdc-tab-indicator";
 @import "@material/tab/mdc-tab";
 @import "@material/list/mdc-list";
+@import "@material/dialog/mdc-dialog";
+@import "@material/button/mdc-button";
+@import "@material/textfield/mdc-text-field";
 
 .game-icon {
   width: 24px;
@@ -41,4 +44,8 @@
 
 .mdc-list-item__meta {
   white-space: nowrap;
+}
+
+.mdc-text-field {
+  margin-top: 8px;
 }
