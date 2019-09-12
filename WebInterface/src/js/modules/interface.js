@@ -24,6 +24,18 @@ class InterfaceAccessor {
     this.object[method](...args);
     return 0;
   }
+
+  /**
+   * Executes method if it is a public method
+   * @param {string} method Name of method to call
+   * @return {number} -1 failed, function return otherwise
+   */
+  executeReturn(method, ...args) {
+    if (!this.publicMethods.includes(method)) return -1;
+    if (typeof this.object[method] != 'function') return -1;
+
+    return this.object[method](...args);
+  }
 }
 
 /**
@@ -70,7 +82,7 @@ export default class Interface {
    * @param {...*} args Arguments to pass
    * @return {number} 0 Success, 1 no objects with objKey, 2 method not public
    */
-  callMethod(objKey, method, ...args) {
+  callMethods(objKey, method, ...args) {
     if (!this.objects[objKey]) return 1;
 
     let returnCode = 0;
@@ -78,5 +90,18 @@ export default class Interface {
       if (obj.execute(method, ...args) != 0) returnCode = 2;
     }
     return returnCode;
+  }
+
+  /**
+   * Calls a method on first object with the key objKey
+   * @param {String} objKey Object Key of object to call method on
+   * @param {String} method Method name to call on the objects
+   * @param {...*} args Arguments to pass
+   * @return -1 if failed, function return otherwise
+   */
+  callMethod(objKey, method, ...args) {
+    if (!this.objects[objKey]) return -1;
+
+    return this.objects[objKey][0].executeReturn(method, ...args);
   }
 }

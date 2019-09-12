@@ -244,6 +244,7 @@ export default class ServerListing {
     loginButton.setAttribute('type', 'button');
     loginButton.className = 'mdc-button mdc-dialog__button';
     loginButton.setAttribute('data-mdc-dialog-action', 'accept');
+    loginButton.setAttribute('data-mdc-dialog-button-default', 'true');
     loginButton.innerText = 'Beitreten';
     scrim.className = 'mdc-dialog__scrim';
 
@@ -277,6 +278,12 @@ export default class ServerListing {
     this.dialog = new MDCDialog(this.dialogBox);
     this.dialog.open();
 
-    // this.dialog.listen()
+    this.dialog.listen('MDCDialog:closed', (e) => {
+      if (e.detail.action == 'accept') {
+        const username = this.usernameField.value;
+        const password = this.passwordField.value;
+        this.iface.callMethod('networker', 'sendLogin', id, username, password);
+      }
+    });
   }
 }

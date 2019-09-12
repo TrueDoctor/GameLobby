@@ -42,7 +42,8 @@ for (let pathElt of JSPaths) {
     plugins: [
       new webpack.DefinePlugin({
           'process.env': {
-              'API_URL': JSON.stringify('https://games.kobert.dev/api/lobby'),
+              'API_URL': JSON.stringify('https://games.kobert.dev/api/lobby/'),
+              'API_LOGIN': JSON.stringify('https://games.kobert.dev/api/lobby/groups/'),
           }
       }),
     ],

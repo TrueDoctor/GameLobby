@@ -1,3 +1,5 @@
+import './hash';
+
 /**
  * Class for communication to server
  */
@@ -11,13 +13,13 @@ export default class Networker {
     this.url = url;
 
     // Register in Interface
-    iface.addObject(this, 'networker', ['getServers']);
+    iface.addObject(this, 'networker', ['getServers', 'sendLogin']);
     this.iface = iface;
     this.refreshing = false;
   }
 
   /**
-   *
+   * Requests server list from API
    */
   getServers() {
     if (this.refreshing) return;
@@ -33,5 +35,18 @@ export default class Networker {
         this.refreshing = false;
       })
       .catch(error => console.error('Error:', error));
+  }
+
+  sendLogin(id, name, password) {
+    return password.getHash().then((hashedPass) => fetch(process.env.API_LOGIN + id, {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      redirect: 'manual',
+      body: JSON.stringify({name, 'password': hashedPass}),
+    })).then(response => console.log(response)).catch((e) => console.log(console.log(e.toString())));
   }
 }

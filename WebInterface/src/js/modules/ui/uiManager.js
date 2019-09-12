@@ -1,6 +1,6 @@
-import About from './collections/about';
+//import About from './collections/about';
 import Login from './collections/login';
-import Play from './collections/play';
+//import Play from './collections/play';
 
 /**
  * Controller class for Page UI
