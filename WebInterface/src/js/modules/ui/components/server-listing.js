@@ -140,21 +140,6 @@ export default class ServerListing {
    * @param {array} Server List received from server
    */
   addElements(data) {
-    // TODO: REMOVE; JUST FOR STRESS TESTING
-    const l = data.length;
-    for (let i = 0; i < l; i++) {
-      for (let j = 0; j < 50; j++) data.push(data[i]);
-    }
-    data.push({
-      "name": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-      "userCount": 0,
-      "maxUsers": 5,
-      "hasPassword": true,
-      "type": "dsa",
-      "id": 0
-    });
-    // ------
-
     for (let server of data) {
       const name = server['name'];
       const playerAmount = server['userCount'];
@@ -285,6 +270,7 @@ export default class ServerListing {
     this.dialogBox.appendChild(scrim);
     document.querySelector('body').appendChild(this.dialogBox);
 
+    this.usernameField = new MDCTextField(userNameDiv);
     if (needsPassword) {
       this.passwordField = new MDCTextField(passwordDiv);
     }
