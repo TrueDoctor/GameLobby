@@ -32,12 +32,22 @@ $duration: 1.4s;
   left: 50%;
   margin: -64px 0 0 -64px;
   animation: rotator $duration linear infinite;
-}
 
-.path {
-  stroke-dasharray: $offset;
-  stroke-dashoffset: 0;
-  transform-origin: center;
-  animation: dash $duration ease-in-out infinite,
-      colors ($duration*4) ease-in-out infinite;
+  .path {
+    stroke-dasharray: $offset;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation: dash $duration ease-in-out infinite,
+        colors ($duration*4) ease-in-out infinite;
+  }
+
+  &.hidden {
+    display: none;
+    animation : none;
+
+    .path {
+      display: none;
+      animation : none;
+    }
+  }
 }

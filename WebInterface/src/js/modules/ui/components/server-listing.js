@@ -17,7 +17,7 @@ export default class ServerListing {
   constructor(iface, tabBarId, gameListDivId, refreshBtnId) {
     this.ids = {tabBarId, gameListDivId, refreshBtnId};
 
-    iface.addObject(this, 'serverListing', ['flushElements', 'addElements', 'addCategories', 'startLoadingAnimation']);
+    iface.addObject(this, 'serverListing', ['addElements', 'addCategories', 'startLoadingAnimation', 'stopLoadingAnimation']);
     this.iface = iface;
   }
 
@@ -49,19 +49,31 @@ export default class ServerListing {
   }
 
   /**
-   * Removes all elements currently in the server listing
-   */
-  flushElements() {
-    for (let list of this.allServerLists) {
-      list.innerHTML = '';
-    }
-  }
-
-  /**
    * Replaces lists with loader
    */
   startLoadingAnimation() {
-    this.gameListDiv.innerHTML = '<svg class="spinner" width="127px" height="127px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><circle class="path" fill="none" stroke-width="10" stroke-linecap="round" cx="64" cy="64" r="59"></circle></svg>';
+    for (let list of this.gameListDiv.children) {
+      if (!list.classList.contains('hidden')) {
+        list.classList.add('hidden');
+        this.lastSelected = list.id;
+        break;
+      }
+    }
+
+    // Creation via dom node seems heavily bugged right now,
+    //   so going the less pretty route
+    let spinner;
+    if ((spinner = document.querySelector('.spinner')) === null) {
+      this.gameListDiv.innerHTML += '<svg class="spinner" width="127px" height="127px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><circle class="path" fill="none" stroke-width="10" stroke-linecap="round" cx="64" cy="64" r="59"></circle></svg>';
+    } else {
+      spinner.classList.remove('hidden');
+    }
+  }
+
+  stopLoadingAnimation() {
+    let spinner = document.querySelector('.spinner');
+    if (spinner !== null) spinner.classList.add('hidden');
+    if (this.lastSelected !== undefined) document.getElementById(this.lastSelected).classList.remove('hidden');
   }
 
   /**
@@ -282,7 +294,14 @@ export default class ServerListing {
       if (e.detail.action == 'accept') {
         const username = this.usernameField.value;
         const password = this.passwordField.value;
-        this.iface.callMethod('networker', 'sendLogin', id, username, password);
+        this.startLoadingAnimation();
+        this.iface.callMethod('networker', 'sendLogin', id, username, password)
+            .then(response => console.log(response))
+            .catch(e => {
+              console.error(e.toString());
+              this.iface.callMethod('snackBar', 'createSnack', 'Ein Serverfehler ist aufgetreten.');
+              this.stopLoadingAnimation();
+            });
       }
     });
   }

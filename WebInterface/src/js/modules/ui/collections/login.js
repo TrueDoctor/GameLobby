@@ -1,4 +1,5 @@
 import ServerListing from '../components/server-listing';
+import SnackBarController from '../components/snackbar-controller';
 
 /**
  * UI Loader for login page
@@ -11,6 +12,9 @@ export default class Login {
   constructor(iface) {
     this.serverListing = new ServerListing(iface, 'games-tab-bar', 'games-lists',
         'refresh-btn');
+
+    this.snackDispenser = new SnackBarController(iface, 'main');
+
 
     this.serverListing.initialize();
   }

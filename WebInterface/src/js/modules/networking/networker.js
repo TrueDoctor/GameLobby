@@ -29,12 +29,15 @@ export default class Networker {
     fetch(process.env.API_URL)
       .then(response => response.json())
       .then(data => {
-        this.iface.callMethod('serverListing', 'flusElements');
         this.iface.callMethod('serverListing', 'addCategories', data['gameTypes']);
         this.iface.callMethod('serverListing', 'addElements', data['games']);
+        this.iface.callMethod('serverListing', 'stopLoadingAnimation');
         this.refreshing = false;
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => {
+        //this.iface.callMethod('serverListing', 'stopLoadingAnimation');
+        this.iface.callMethod('serverListing', 'showErrorPage');
+      });
   }
 
   sendLogin(id, name, password) {
@@ -47,6 +50,6 @@ export default class Networker {
       },
       redirect: 'manual',
       body: JSON.stringify({name, 'password': hashedPass}),
-    })).then(response => console.log(response)).catch((e) => console.log(console.log(e.toString())));
+    }));
   }
 }

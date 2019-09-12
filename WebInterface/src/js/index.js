@@ -24,5 +24,6 @@ const uiMan = new UIManager(iface);
 uiMan.initLobby();
 netMan.getServers();
 
+
 // TODO: Implement URL-encoded starting position for games tab
 // TODO: Save last game in cookies, initalize game page immediately, if game still active, otherwise build this page
