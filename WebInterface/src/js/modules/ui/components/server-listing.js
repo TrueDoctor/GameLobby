@@ -73,7 +73,21 @@ export default class ServerListing {
   stopLoadingAnimation() {
     let spinner = document.querySelector('.spinner');
     if (spinner !== null) spinner.classList.add('hidden');
-    if (this.lastSelected !== undefined) document.getElementById(this.lastSelected).classList.remove('hidden');
+
+    if (this.lastSelected !== undefined) {
+      document.getElementById(this.lastSelected).classList.add('loading');
+      document.getElementById(this.lastSelected).classList.remove('hidden');
+    } else {
+      document.getElementById('listing-0').classList.add('loading');
+      document.getElementById('listing-0').classList.remove('hidden');
+    }
+    setTimeout(() => {
+      if (this.lastSelected !== undefined) {
+        document.getElementById(this.lastSelected).classList.remove('loading');
+      } else {
+        document.getElementById('listing-0').classList.remove('loading');
+      }
+    }, 0);
   }
 
   /**
@@ -88,6 +102,8 @@ export default class ServerListing {
     this.serverListings = {};
     this.types = {};
 
+    const lastCategory = (this.lastSelected === undefined) ? 0 : parseInt(this.lastSelected[this.lastSelected.length - 1]);
+
     for (let i = 0; i < data.length; i++) {
       const category = data[i];
       const tabButton = document.createElement('button');
@@ -99,7 +115,8 @@ export default class ServerListing {
       const gamesList = document.createElement('div');
       const innerList = document.createElement('ul');
 
-      tabButton.className = (i == 0) ? 'mdc-tab mdc-tab--active' : 'mdc-tab';
+
+      tabButton.className = (i == lastCategory) ? 'mdc-tab mdc-tab--active' : 'mdc-tab';
       tabButton.setAttribute('role', 'tab');
       tabButton.setAttribute('aria-selected', 'true');
       if (i == 0) tabButton.setAttribute('tabindex', '0');
@@ -111,11 +128,10 @@ export default class ServerListing {
       tabIcon.src = category.icon;
       tabName.className = 'mdc-tab__text-label';
       tabName.innerText = category.displayName;
-      tabIndicator.className = (i == 0) ? 'mdc-tab-indicator mdc-tab-indicator--active' : 'mdc-tab-indicator';
+      tabIndicator.className = (i == lastCategory) ? 'mdc-tab-indicator mdc-tab-indicator--active' : 'mdc-tab-indicator';
       tabIndicator.innerHTML = '<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>';
       tabRipple.className = 'mdc-tab__ripple';
-      gamesList.className = (i == 0) ? 'games-listing loading' : 'games-listing hidden';
-      if (i == 0) setTimeout(() => gamesList.className = 'games-listing', 0);
+      gamesList.className = 'games-listing hidden';
       gamesList.id = 'listing-' + i.toString();
       innerList.className = 'game-list mdc-list'
       innerList.id = 'games-list-' + category.name;
