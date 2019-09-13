@@ -25,6 +25,7 @@ const netMan = new Networker(iface);
 const uiMan = new UIManager(iface);
 uiMan.initLobby();
 netMan.getServers();
+document.getElementById('search-input').addEventListener('input', e => iface.callMethod('serverListing', 'filter', e.target.value));
 
 
 // TODO: Implement URL-encoded starting position for games tab

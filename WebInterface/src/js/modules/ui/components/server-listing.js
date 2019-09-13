@@ -17,8 +17,10 @@ export default class ServerListing {
   constructor(iface, tabBarId, gameListDivId, refreshBtnId) {
     this.ids = {tabBarId, gameListDivId, refreshBtnId};
 
-    iface.addObject(this, 'serverListing', ['addElements', 'addCategories', 'startLoadingAnimation', 'stopLoadingAnimation']);
+    iface.addObject(this, 'serverListing', ['addElements', 'addCategories', 'startLoadingAnimation', 'stopLoadingAnimation', 'filter']);
     this.iface = iface;
+
+    this.serverList = [];
   }
 
   /**
@@ -169,6 +171,7 @@ export default class ServerListing {
    * @param {array} Server List received from server
    */
   addElements(data) {
+    this.serverList = [];
     for (let server of data) {
       const name = server['name'];
       const playerAmount = server['userCount'];
@@ -206,8 +209,21 @@ export default class ServerListing {
 
       try {
         this.serverListings[type].appendChild(item);
+        this.serverList.push({'name': name.toLowerCase(), item});
       } catch (e) {
         console.error(e.toString());
+      }
+    }
+  }
+
+  filter(searchString) {
+    searchString = searchString.toLowerCase();
+
+    for (let item of this.serverList) {
+      if (item.name.includes(searchString)) {
+        item.item.classList.remove('hidden');
+      } else {
+        item.item.classList.add('hidden');
       }
     }
   }
