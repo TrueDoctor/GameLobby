@@ -77,20 +77,20 @@ export default class ServerListing {
     if (spinner !== null) spinner.classList.add('hidden');
 
     // Animate showing last selected category again
+    let workingDiv;
     if (this.lastSelected !== undefined) {
-      document.getElementById(this.lastSelected).classList.add('loading');
-      document.getElementById(this.lastSelected).classList.remove('hidden');
-    } else {
-      document.getElementById('listing-0').classList.add('loading');
-      document.getElementById('listing-0').classList.remove('hidden');
-    }
-    setTimeout(() => {
-      if (this.lastSelected !== undefined) {
-        document.getElementById(this.lastSelected).classList.remove('loading');
-      } else {
-        document.getElementById('listing-0').classList.remove('loading');
+      if (workingDiv = document.getElementById(this.lastSelected)) {
+        workingDiv.classList.add('loading');
+        workingDiv.classList.remove('hidden');
+        setTimeout(() => workingDiv.classList.remove('loading'), 0);
       }
-    }, 0);
+    } else {
+      if (workingDiv = document.getElementById('listing-0')) {
+        workingDiv.classList.add('loading');
+        workingDiv.classList.remove('hidden');
+        setTimeout(() => workingDiv.classList.remove('loading'), 0);
+      }
+    }
   }
 
   /**
@@ -105,6 +105,16 @@ export default class ServerListing {
     this.serverListings = {};
     this.types = {};
 
+    if (this.lastSelected === undefined && window.location.hash != "") {
+      for (let i = 0; i < data.length; i++) {
+        const category = data[i];
+        if ('#' + category.name == window.location.hash) {
+          this.lastSelected = 'listing-' + i;
+          break;
+        }
+      }
+    };
+
     const lastCategory = (this.lastSelected === undefined) ? 0 : parseInt(this.lastSelected[this.lastSelected.length - 1]);
 
     for (let i = 0; i < data.length; i++) {
@@ -118,12 +128,11 @@ export default class ServerListing {
       const gamesList = document.createElement('div');
       const innerList = document.createElement('ul');
 
-
       tabButton.className = (i == lastCategory) ? 'mdc-tab mdc-tab--active' : 'mdc-tab';
       tabButton.setAttribute('role', 'tab');
       tabButton.setAttribute('aria-selected', 'true');
-      if (i == 0) tabButton.setAttribute('tabindex', '0');
       tabButton.setAttribute('game-type', category.name);
+      if (i == 0) tabButton.setAttribute('tabindex', '0');
       tabContent.className = 'mdc-tab__content';
       tabIcon.className = 'game-icon';
       tabIcon.width = '24';
@@ -136,6 +145,7 @@ export default class ServerListing {
       tabRipple.className = 'mdc-tab__ripple';
       gamesList.className = 'games-listing hidden';
       gamesList.id = 'listing-' + i.toString();
+      gamesList.setAttribute('type', category.name);
       innerList.className = 'game-list mdc-list'
       innerList.id = 'games-list-' + category.name;
       innerList.setAttribute('type', category.name);
@@ -163,6 +173,7 @@ export default class ServerListing {
         list.classList.add('hidden');
       }
       this.listContainers[event.detail.index].classList.remove('hidden');
+      window.location.hash = '#' + this.listContainers[event.detail.index].getAttribute('type');
     });
   }
 
