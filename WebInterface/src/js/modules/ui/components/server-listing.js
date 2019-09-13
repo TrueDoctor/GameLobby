@@ -294,12 +294,42 @@ export default class ServerListing {
       if (e.detail.action == 'accept') {
         const username = this.usernameField.value;
         const password = this.passwordField.value;
+        let status = 400;
+
         this.startLoadingAnimation();
         this.iface.callMethod('networker', 'sendLogin', id, username, password)
-            .then(response => console.log(response))
-            .catch(e => {
+            .then(response => {
+              status = response.status;
+              return response.text();
+            }).then(text => {
+              let message;
+              switch(status) {
+                case 400:
+                  message = 'Der Server hat die Anfrage zurückgewiesen.';
+                  break;
+                case 401:
+                  if (text == 'name') message = 'Der Nutzermame ist schon vergeben.';
+                  else if (text == 'pass') message = 'Ungültiges Passwort';
+                  break;
+                case 404:
+                  message = 'Der Server existiert nicht mehr.';
+                  break;
+                case 500:
+                  message = 'Ein Serverfehler ist aufgetreten.';
+                  break;
+                case 200:
+                  // TODO: LOGIN
+                  console.log('NYI: LOGING');
+                  return;
+                default:
+                  message = 'Ein Fehler ist aufgetreten: ' + response.status.toString();
+                  break;
+              }
+              this.iface.callMethod('snackBar', 'createSnack', message);
+              this.stopLoadingAnimation();
+            }).catch(e => {
               console.error(e.toString());
-              this.iface.callMethod('snackBar', 'createSnack', 'Ein Serverfehler ist aufgetreten.');
+              this.iface.callMethod('snackBar', 'createSnack', 'Ein Fehler ist aufgetreten.');
               this.stopLoadingAnimation();
             });
       }
