@@ -35,8 +35,8 @@ export default class Networker {
         this.refreshing = false;
       })
       .catch(error => {
-        //this.iface.callMethod('serverListing', 'stopLoadingAnimation');
-        this.iface.callMethod('serverListing', 'showErrorPage');
+        this.iface.callMethod('snackBar', 'createSnack', 'Ein Fehler ist aufgetreten.');
+        this.iface.callMethod('serverListing', 'stopLoadingAnimation');
       });
   }
 

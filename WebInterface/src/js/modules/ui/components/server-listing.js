@@ -310,16 +310,19 @@ export default class ServerListing {
                 case 401:
                   if (text == 'name') message = 'Der Nutzermame ist schon vergeben.';
                   else if (text == 'pass') message = 'Ungültiges Passwort';
+                  this.dialog.open();
                   break;
                 case 404:
                   message = 'Der Server existiert nicht mehr.';
                   break;
                 case 500:
                   message = 'Ein Serverfehler ist aufgetreten.';
+                  this.dialog.open();
                   break;
                 case 200:
                   // TODO: LOGIN
                   console.log('NYI: LOGING');
+                  console.log(text);
                   return;
                 default:
                   message = 'Ein Fehler ist aufgetreten: ' + status.toString();
