@@ -322,7 +322,7 @@ export default class ServerListing {
                   console.log('NYI: LOGING');
                   return;
                 default:
-                  message = 'Ein Fehler ist aufgetreten: ' + response.status.toString();
+                  message = 'Ein Fehler ist aufgetreten: ' + status.toString();
                   break;
               }
               this.iface.callMethod('snackBar', 'createSnack', message);
