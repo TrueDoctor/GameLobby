@@ -74,6 +74,7 @@ export default class ServerListing {
     let spinner = document.querySelector('.spinner');
     if (spinner !== null) spinner.classList.add('hidden');
 
+    // Animate showing last selected category again
     if (this.lastSelected !== undefined) {
       document.getElementById(this.lastSelected).classList.add('loading');
       document.getElementById(this.lastSelected).classList.remove('hidden');
@@ -307,6 +308,11 @@ export default class ServerListing {
     this.dialog.open();
 
     this.dialog.listen('MDCDialog:closed', (e) => {
+      if (this.dialogBox != undefined) {
+        document.querySelector('body').removeChild(this.dialogBox);
+        this.dialogBox = undefined;
+      }
+
       if (e.detail.action == 'accept') {
         const username = this.usernameField.value;
         const password = this.passwordField.value;
