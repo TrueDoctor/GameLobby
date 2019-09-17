@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "rm -r dist & node ./webpack/copy-resources.js && webpack --config webpack/styles.config.js --json > ./webpack/styles-output.json && webpack --config webpack/scripts.config.js --json > ./webpack/scripts-output.json && webpack --config webpack/html.config.js --json > ./webpack/html-output.json"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.3.1",
+    "string-replace-loader": "^2.2.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",

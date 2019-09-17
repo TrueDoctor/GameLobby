@@ -1,0 +1,569 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.39.3",
+  "hash": "6cfede3325dab324b6026cfede3325dab324b6026cfede3325dab324b602",
+  "children": [
+    {
+      "errors": [],
+      "warnings": [],
+      "hash": "6cfede3325dab324b602",
+      "time": 357,
+      "builtAt": 1568741345304,
+      "publicPath": "",
+      "outputPath": "C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\dist",
+      "assetsByChunkName": {
+        "main": "_placeholder.js"
+      },
+      "assets": [
+        {
+          "name": "_placeholder.js",
+          "size": 958,
+          "chunks": [
+            0
+          ],
+          "chunkNames": [
+            "main"
+          ],
+          "emitted": true
+        },
+        {
+          "name": "index.html",
+          "size": 2885,
+          "chunks": [],
+          "chunkNames": [],
+          "emitted": true
+        }
+      ],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "main": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "_placeholder.js"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "main": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "_placeholder.js"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "chunks": [
+        {
+          "id": 0,
+          "rendered": true,
+          "initial": true,
+          "entry": true,
+          "size": 56,
+          "names": [
+            "main"
+          ],
+          "files": [
+            "_placeholder.js"
+          ],
+          "hash": "fe93117bb0d944b3dfb6",
+          "siblings": [],
+          "parents": [],
+          "children": [],
+          "childrenByOrder": {},
+          "modules": [
+            {
+              "id": 0,
+              "identifier": "C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\file-loader\\dist\\cjs.js?name=index.html!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\extract-loader\\lib\\extractLoader.js!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\html-loader\\index.js??ref--4-2!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\string-replace-loader\\index.js??ref--4-3!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\src\\html\\index.html",
+              "name": "./src/html/index.html",
+              "index": 0,
+              "index2": 0,
+              "size": 56,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [
+                0
+              ],
+              "issuer": null,
+              "issuerId": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "assets": [
+                "index.html"
+              ],
+              "reasons": [
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": null,
+                  "module": null,
+                  "moduleName": null,
+                  "type": "single entry",
+                  "userRequest": "./src/html/index.html",
+                  "loc": "main"
+                }
+              ],
+              "usedExports": true,
+              "providedExports": null,
+              "optimizationBailout": [
+                "ModuleConcatenation bailout: Module is not an ECMAScript module"
+              ],
+              "depth": 0,
+              "source": "module.exports = __webpack_public_path__ + \"index.html\";"
+            }
+          ],
+          "filteredModules": 0,
+          "origins": [
+            {
+              "module": "",
+              "moduleIdentifier": "",
+              "moduleName": "",
+              "loc": "main",
+              "request": "./src/html/index.html",
+              "reasons": []
+            }
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\file-loader\\dist\\cjs.js?name=index.html!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\extract-loader\\lib\\extractLoader.js!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\html-loader\\index.js??ref--4-2!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\string-replace-loader\\index.js??ref--4-3!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\src\\html\\index.html",
+          "name": "./src/html/index.html",
+          "index": 0,
+          "index2": 0,
+          "size": 56,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+            "index.html"
+          ],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "type": "single entry",
+              "userRequest": "./src/html/index.html",
+              "loc": "main"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 0,
+          "source": "module.exports = __webpack_public_path__ + \"index.html\";"
+        }
+      ],
+      "filteredModules": 0,
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": []
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "hash": "6cfede3325dab324b602",
+      "time": 337,
+      "builtAt": 1568741345304,
+      "publicPath": "",
+      "outputPath": "C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\dist\\about",
+      "assetsByChunkName": {
+        "main": "_placeholder.js"
+      },
+      "assets": [
+        {
+          "name": "_placeholder.js",
+          "size": 958,
+          "chunks": [
+            0
+          ],
+          "chunkNames": [
+            "main"
+          ],
+          "emitted": true
+        },
+        {
+          "name": "index.html",
+          "size": 3292,
+          "chunks": [],
+          "chunkNames": [],
+          "emitted": true
+        }
+      ],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "main": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "_placeholder.js"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "main": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "_placeholder.js"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "chunks": [
+        {
+          "id": 0,
+          "rendered": true,
+          "initial": true,
+          "entry": true,
+          "size": 56,
+          "names": [
+            "main"
+          ],
+          "files": [
+            "_placeholder.js"
+          ],
+          "hash": "fe93117bb0d944b3dfb6",
+          "siblings": [],
+          "parents": [],
+          "children": [],
+          "childrenByOrder": {},
+          "modules": [
+            {
+              "id": 0,
+              "identifier": "C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\file-loader\\dist\\cjs.js?name=index.html!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\extract-loader\\lib\\extractLoader.js!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\html-loader\\index.js??ref--4-2!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\string-replace-loader\\index.js??ref--4-3!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\src\\html\\about\\index.html",
+              "name": "./src/html/about/index.html",
+              "index": 0,
+              "index2": 0,
+              "size": 56,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [
+                0
+              ],
+              "issuer": null,
+              "issuerId": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "assets": [
+                "index.html"
+              ],
+              "reasons": [
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": null,
+                  "module": null,
+                  "moduleName": null,
+                  "type": "single entry",
+                  "userRequest": "./src/html/about/index.html",
+                  "loc": "main"
+                }
+              ],
+              "usedExports": true,
+              "providedExports": null,
+              "optimizationBailout": [
+                "ModuleConcatenation bailout: Module is not an ECMAScript module"
+              ],
+              "depth": 0,
+              "source": "module.exports = __webpack_public_path__ + \"index.html\";"
+            }
+          ],
+          "filteredModules": 0,
+          "origins": [
+            {
+              "module": "",
+              "moduleIdentifier": "",
+              "moduleName": "",
+              "loc": "main",
+              "request": "./src/html/about/index.html",
+              "reasons": []
+            }
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\file-loader\\dist\\cjs.js?name=index.html!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\extract-loader\\lib\\extractLoader.js!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\html-loader\\index.js??ref--4-2!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\string-replace-loader\\index.js??ref--4-3!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\src\\html\\about\\index.html",
+          "name": "./src/html/about/index.html",
+          "index": 0,
+          "index2": 0,
+          "size": 56,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+            "index.html"
+          ],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "type": "single entry",
+              "userRequest": "./src/html/about/index.html",
+              "loc": "main"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 0,
+          "source": "module.exports = __webpack_public_path__ + \"index.html\";"
+        }
+      ],
+      "filteredModules": 0,
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": []
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "hash": "6cfede3325dab324b602",
+      "time": 334,
+      "builtAt": 1568741345305,
+      "publicPath": "",
+      "outputPath": "C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\dist\\play",
+      "assetsByChunkName": {
+        "main": "_placeholder.js"
+      },
+      "assets": [
+        {
+          "name": "_placeholder.js",
+          "size": 958,
+          "chunks": [
+            0
+          ],
+          "chunkNames": [
+            "main"
+          ],
+          "emitted": true
+        },
+        {
+          "name": "index.html",
+          "size": 1931,
+          "chunks": [],
+          "chunkNames": [],
+          "emitted": true
+        }
+      ],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "main": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "_placeholder.js"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "main": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "_placeholder.js"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "chunks": [
+        {
+          "id": 0,
+          "rendered": true,
+          "initial": true,
+          "entry": true,
+          "size": 56,
+          "names": [
+            "main"
+          ],
+          "files": [
+            "_placeholder.js"
+          ],
+          "hash": "fe93117bb0d944b3dfb6",
+          "siblings": [],
+          "parents": [],
+          "children": [],
+          "childrenByOrder": {},
+          "modules": [
+            {
+              "id": 0,
+              "identifier": "C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\file-loader\\dist\\cjs.js?name=index.html!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\extract-loader\\lib\\extractLoader.js!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\html-loader\\index.js??ref--4-2!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\string-replace-loader\\index.js??ref--4-3!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\src\\html\\play\\index.html",
+              "name": "./src/html/play/index.html",
+              "index": 0,
+              "index2": 0,
+              "size": 56,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [
+                0
+              ],
+              "issuer": null,
+              "issuerId": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "assets": [
+                "index.html"
+              ],
+              "reasons": [
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": null,
+                  "module": null,
+                  "moduleName": null,
+                  "type": "single entry",
+                  "userRequest": "./src/html/play/index.html",
+                  "loc": "main"
+                }
+              ],
+              "usedExports": true,
+              "providedExports": null,
+              "optimizationBailout": [
+                "ModuleConcatenation bailout: Module is not an ECMAScript module"
+              ],
+              "depth": 0,
+              "source": "module.exports = __webpack_public_path__ + \"index.html\";"
+            }
+          ],
+          "filteredModules": 0,
+          "origins": [
+            {
+              "module": "",
+              "moduleIdentifier": "",
+              "moduleName": "",
+              "loc": "main",
+              "request": "./src/html/play/index.html",
+              "reasons": []
+            }
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\file-loader\\dist\\cjs.js?name=index.html!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\extract-loader\\lib\\extractLoader.js!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\html-loader\\index.js??ref--4-2!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\node_modules\\string-replace-loader\\index.js??ref--4-3!C:\\Users\\Timon\\Desktop\\Developement\\GameLobby\\src\\html\\play\\index.html",
+          "name": "./src/html/play/index.html",
+          "index": 0,
+          "index2": 0,
+          "size": 56,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+            "index.html"
+          ],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "type": "single entry",
+              "userRequest": "./src/html/play/index.html",
+              "loc": "main"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 0,
+          "source": "module.exports = __webpack_public_path__ + \"index.html\";"
+        }
+      ],
+      "filteredModules": 0,
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": []
+    }
+  ]
+}

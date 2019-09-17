@@ -1,0 +1,15 @@
+{
+  "styles": [
+    {"srcpath": "styles/", "path": "styles/", "name": "index"},
+    {"srcpath": "styles/", "path": "styles/", "name": "about"},
+    {"srcpath": "styles/", "path": "styles/", "name": "play"}
+  ],
+  "html": [
+    {"srcpath": "html/", "path": "", "name": "index"},
+    {"srcpath": "html/about/", "path": "about/", "name": "index"},
+    {"srcpath": "html/play/", "path": "play/", "name": "index"}
+  ],
+  "scripts": [
+    {"srcpath": "js/", "path": "js/", "name": "index"}
+  ]
+}
