@@ -2,3 +2,4 @@ node_modules
 .vscode
 _placeholder.js
 dist
+webpack/*-output.json
