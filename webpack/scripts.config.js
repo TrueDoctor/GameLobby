@@ -18,6 +18,7 @@ for (let pathElt of JSPaths) {
 
   const settings = {
     mode: mode,
+    devtool: 'source-map',
     entry: srcFolder + srcpth + name + '.js',
     output: {
       filename: name + '.[contenthash].js',
