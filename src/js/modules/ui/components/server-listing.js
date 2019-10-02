@@ -337,7 +337,6 @@ export default class ServerListing {
     document.querySelector('body').appendChild(this.dialogBox);
 
     this.usernameField = new MDCTextField(userNameDiv);
-    console.log(this.usernameField)
     if (needsPassword) {
       this.passwordField = new MDCTextField(passwordDiv);
     }
@@ -358,17 +357,19 @@ export default class ServerListing {
         this.startLoadingAnimation();
         this.iface.callMethod('networker', 'sendLogin', id, username, password)
             .then(response => {
-              status = response.status;
+              this.status = response.status;
               return response.text();
             }).then(text => {
               let message;
-              switch(status) {
+
+              switch(this.status) {
                 case 400:
                   message = 'Der Server hat die Anfrage zurückgewiesen.';
                   break;
                 case 401:
-                  if (text == 'name') message = 'Der Nutzermame ist schon vergeben.';
+                  if (text == 'name') message = 'Der Nutzername ist schon vergeben.';
                   else if (text == 'pass') message = 'Ungültiges Passwort';
+                  else message = 'Authentifizierungsproblem';
                   this.dialog.open();
                   break;
                 case 404:
@@ -380,10 +381,11 @@ export default class ServerListing {
                   break;
                 case 200:
                   // TODO: LOGIN
-                  console.log('NYI: LOGING');
+                  console.error('NYI: LOGING');
                   console.log(text);
                   return;
                 default:
+                  console.error('Unexpected response code: ' + this.response.toString());
                   message = 'Ein Fehler ist aufgetreten: ' + status.toString();
                   break;
               }
