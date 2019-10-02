@@ -64,9 +64,18 @@ export default class ServerListing {
 
     // Creation via dom node seems heavily bugged right now,
     //   so going the less pretty route
+    let spinnerDiv;
     let spinner;
+
+    if ((spinnerDiv = document.querySelector('.spinner-div')) === null) {
+      this.gameListDiv.appendChild(spinnerDiv = document.createElement('div'));
+      spinnerDiv.className = 'spinner-div';
+    } else {
+      spinnerDiv.classList.remove('hidden');
+    }
+
     if ((spinner = document.querySelector('.spinner')) === null) {
-      this.gameListDiv.innerHTML += '<svg class="spinner" width="127px" height="127px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><circle class="path" fill="none" stroke-width="10" stroke-linecap="round" cx="64" cy="64" r="59"></circle></svg>';
+      spinnerDiv.innerHTML += '<svg class="spinner" width="127px" height="127px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><circle class="path" fill="none" stroke-width="10" stroke-linecap="round" cx="64" cy="64" r="59"></circle></svg>';
     } else {
       spinner.classList.remove('hidden');
     }
@@ -328,6 +337,7 @@ export default class ServerListing {
     document.querySelector('body').appendChild(this.dialogBox);
 
     this.usernameField = new MDCTextField(userNameDiv);
+    console.log(this.usernameField)
     if (needsPassword) {
       this.passwordField = new MDCTextField(passwordDiv);
     }
