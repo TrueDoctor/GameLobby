@@ -28,6 +28,8 @@ body {
   margin: 4px;
   bottom: 0;
   text-align: center;
+
+  color: var(--mdc-theme-text-primary-on-background, #000) !important;
 }
 
 .mdc-top-app-bar__title {
