@@ -19,6 +19,45 @@ topAppBar.listen('MDCTopAppBar:nav', () => {
 });
 document.getElementById('main-content').addEventListener('click', () => navigationDrawer.open = false);
 
+const brightnessButton = document.getElementById('brightness_btn');
+let currentBrightness = localStorage.getItem('brightness') ? localStorage.getItem('brightness') : 'auto';
+switch (currentBrightness) {
+  case 'light':
+    document.body.className = 'light';
+    brightnessButton.innerText = 'brightness_high';
+    break;
+  case 'dark':
+    document.body.className = 'dark';
+    brightnessButton.innerText = 'brightness_3';
+    break;
+  case 'auto':
+    document.body.className = 'auto';
+    brightnessButton.innerText = 'brightness_auto';
+    break;
+}
+
+brightnessButton.addEventListener('click', () => {
+  switch (currentBrightness) {
+    case 'auto':
+      currentBrightness = 'light';
+      document.body.className = 'light';
+      brightnessButton.innerText = 'brightness_high';
+      localStorage.setItem('brightness', 'light');
+      break;
+    case 'light':
+      currentBrightness = 'dark';
+      document.body.className = 'dark';
+      brightnessButton.innerText = 'brightness_3';
+      localStorage.setItem('brightness', 'dark');
+      break;
+    case 'dark':
+      currentBrightness = 'auto';
+      document.body.className = 'auto';
+      brightnessButton.innerText = 'brightness_auto';
+      localStorage.setItem('brightness', 'auto');
+      break;
+  }
+});
 
 const iface = new Interface();
 const netMan = new Networker(iface);
