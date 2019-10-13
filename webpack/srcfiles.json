@@ -2,8 +2,7 @@
   "styles": [
     {"srcpath": "styles/", "path": "styles/", "name": "index"},
     {"srcpath": "styles/", "path": "styles/", "name": "about"},
-    {"srcpath": "styles/", "path": "styles/", "name": "play"},
-    {"srcpath": "styles/themes/", "path": "styles/themes/", "name": "dark"}
+    {"srcpath": "styles/", "path": "styles/", "name": "play"}
   ],
   "html": [
     {"srcpath": "html/", "path": "", "name": "index"},

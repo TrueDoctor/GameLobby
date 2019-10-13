@@ -1,0 +1,30 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mdc-theme-primary: #ba68c8 !important;
+    --mdc-theme-secondary: #7986cb !important;
+    --mdc-theme-background: #121212 !important;
+    --mdc-theme-surface: #121212 !important;
+    --mdc-theme-elevation-1: #2a2a2a !important;
+    --mdc-theme-elevation-24: #383838 !important;
+    --mdc-theme-error: #b00020 !important;
+    --mdc-theme-on-primary: #000 !important;
+    --mdc-theme-on-secondary: #000 !important;
+    --mdc-theme-on-surface: #fff !important;
+    --mdc-theme-on-error: #fff !important;
+    --mdc-theme-text-primary-on-background: rgba(255,255,255,0.87) !important;
+    --mdc-theme-text-secondary-on-background: rgba(255,255,255,0.54) !important;
+    --mdc-theme-text-hint-on-background: rgba(255,255,255,0.38) !important;
+    --mdc-theme-text-disabled-on-background: rgba(255,255,255,0.38) !important;
+    --mdc-theme-text-icon-on-background: rgba(255,255,255,0.38) !important;
+    --mdc-theme-text-primary-on-light: rgba(0,0,0,0.87) !important;
+    --mdc-theme-text-secondary-on-light: rgba(0,0,0,0.54) !important;
+    --mdc-theme-text-hint-on-light: rgba(0,0,0,0.38) !important;
+    --mdc-theme-text-disabled-on-light: rgba(0,0,0,0.38) !important;
+    --mdc-theme-text-icon-on-light: rgba(0,0,0,0.38) !important;
+    --mdc-theme-text-primary-on-dark: #fff !important;
+    --mdc-theme-text-secondary-on-dark: hsla(0,0%,100%,0.7) !important;
+    --mdc-theme-text-hint-on-dark: hsla(0,0%,100%,0.5) !important;
+    --mdc-theme-text-disabled-on-dark: hsla(0,0%,100%,0.5) !important;
+    --mdc-theme-text-icon-on-dark: hsla(0,0%,100%,0.5) !important;
+  }
+}
