@@ -69,6 +69,7 @@
     color: var(--mdc-theme-text-primary-on-background, rgba(255,255,255,0.87)) !important;
     caret-color: var(--mdc-theme-text-primary-on-background, rgba(255,255,255,0.87)) !important;
     text-decoration-color: var(--mdc-theme-text-primary-on-background, rgba(255,255,255,0.87)) !important;
+    border-bottom-color: var(--mdc-theme-text-hint-on-background, rgba(255,255,255,0.54)) !important;
 
     &::placeholder {
       color: var(--mdc-theme-text-secondary-on-background, rgba(255,255,255,0.54)) !important;
@@ -112,4 +113,8 @@ li.hidden {
   margin: 0;
   width: 50%;
   min-width: 192px;
+
+  .mdc-line-ripple {
+    background-color: var(--mdc-theme-secondary,#212121);
+  }
 }
