@@ -1,4 +1,10 @@
+// Base colors, if no theme selected
 $mdc-theme-primary: #212121;
 $mdc-theme-secondary: #546e7a;
 $mdc-theme-on-primary: #ffffff;
 $mdc-theme-on-secondary: #ffffff;
+
+:root {
+  --mdc-theme-elevation-1: #fff;
+  --mdc-theme-elevation-24: #fff;
+}

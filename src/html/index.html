@@ -9,9 +9,20 @@
     <meta name="theme-color" content="#546e7a">
     <title>Spiele-Lobby</title>
     <link rel="icon" href="../resources/icon_lobby.png">
-    <link rel="stylesheet" href="../styles/index.css">
-    <!-- <link rel="manifest" href="manifest.webmanifest"> -->
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/index.css">
+
+    <!-- Dynamically load prefered theme -->
+    <script>
+      // TODO: Maybe add more themes via cookie preferences?
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        const theme = document.createElement('link');
+        theme.rel = 'stylesheet';
+        theme.href = '../styles/themes/dark.css';
+        document.head.appendChild(theme);
+      }
+    </script>
+    <!-- <link rel="manifest" href="manifest.webmanifest"> -->
   </head>
   <body>
     <aside class="mdc-drawer mdc-drawer--dismissible">

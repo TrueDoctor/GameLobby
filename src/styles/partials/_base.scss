@@ -1,4 +1,4 @@
-@import 'colors';
+@import '../themes/base';
 
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/icon-button/mdc-icon-button";
@@ -13,6 +13,7 @@ html,body {
   font-display: swap;
   overflow: hidden;
   user-select: none;
+  background-color: var(--mdc-theme-background, #fff);
 }
 
 body {
@@ -27,6 +28,20 @@ body {
   margin: 4px;
   bottom: 0;
   text-align: center;
+}
+
+.mdc-top-app-bar__title {
+  color: var(--mdc-theme-on-primary, #fff);
+}
+
+.mdc-drawer {
+  background-color: var(--mdc-theme-elevation-1, #fff) !important;
+
+  a {
+    i, span {
+      color: var(--mdc-theme-on-surface, #000) !important;
+    }
+  }
 }
 
 .mdc-drawer-app-content {

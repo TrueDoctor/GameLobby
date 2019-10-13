@@ -1,4 +1,4 @@
-@import 'partials/colors';
+@import 'themes/base';
 @import 'partials/base';
 @import 'partials/spinner';
 
@@ -58,6 +58,49 @@
 .mdc-text-field {
   margin-top: 8px;
   width: 100%;
+  background-color: var(--mdc-theme-elevation-1, initial) !important;
+
+  i {
+    color: var(--mdc-theme-text-secondary-on-background, rgba(255,255,255,0.54)) !important;
+  }
+
+  input {
+    color: var(--mdc-theme-text-primary-on-background, rgba(255,255,255,0.87)) !important;
+    caret-color: var(--mdc-theme-text-primary-on-background, rgba(255,255,255,0.87)) !important;
+    text-decoration-color: var(--mdc-theme-text-primary-on-background, rgba(255,255,255,0.87)) !important;
+
+    &::placeholder {
+      color: var(--mdc-theme-text-secondary-on-background, rgba(255,255,255,0.54)) !important;
+    }
+  }
+
+  label {
+    color: var(--mdc-theme-text-secondary-on-background, rgba(255,255,255,0.54)) !important;
+  }
+}
+
+.mdc-tab-bar {
+  background-color: var(--mdc-theme-elevation-1, #fff) !important;
+}
+
+.mdc-tab__text-label {
+  color: rgba(255,255,255,.6) !important;
+}
+
+.mdc-tab--active .mdc-tab__text-label {
+  color: var(--mdc-theme-primary,#212121) !important;
+}
+
+.mdc-dialog__surface {
+  background-color: var(--mdc-theme-elevation-24, #fff) !important;
+
+  h2 {
+    color: var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, .87)) !important;
+
+    .mdc-typography--subtitle1 {
+      color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, .54)) !important;
+    }
+  }
 }
 
 li.hidden {

@@ -381,7 +381,7 @@ export default class ServerListing {
                   break;
                 case 200:
                   // TODO: LOGIN
-                  console.error('NYI: LOGING');
+                  console.error('NYI: LOGIN');
                   console.log(text);
                   return;
                 default:
