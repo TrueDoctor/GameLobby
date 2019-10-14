@@ -86,7 +86,7 @@
 }
 
 .mdc-tab__text-label {
-  color: rgba(255,255,255,.6) !important;
+  color: var(--mdc-theme-text-secondary-on-background, rgba(0,0,0,0.54)) !important;
 }
 
 .mdc-tab--active .mdc-tab__text-label {
