@@ -197,7 +197,7 @@ export default class ServerListing {
       const playerAmount = server['userCount'];
       const playerMax = server['maxUsers'];
       const hasPassword = server['hasPassword'];
-      const type = server['type'];
+      const type = server['type_'];
       const id = server['id'];
 
       let item = document.createElement('li');
