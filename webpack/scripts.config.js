@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
+const process = require('process');
 
 const mode = 'production';
 const srcFolder = './src/';
@@ -27,7 +28,7 @@ for (let pathElt of JSPaths) {
     plugins: [
       new webpack.DefinePlugin({
           'process.env': {
-              'API_URL': JSON.stringify('https://games.kobert.dev/api/lobby/'),
+              'API_URL': JSON.stringify(process.env['API_URL'] || 'https://games.kobert.dev/api/lobby/'),
               'API_LOGIN': JSON.stringify('https://games.kobert.dev/api/lobby/groups/'),
           }
       }),
