@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -r dist || true && node ./webpack/copy-resources.js && webpack --config webpack/styles.config.js --json > ./webpack/styles-output.json && webpack --config webpack/scripts.config.js --json > ./webpack/scripts-output.json && webpack --config webpack/html.config.js --json > ./webpack/html-output.json"
+    "build": "rm -r dist || true && node ./webpack/copy-resources.js && webpack --config webpack/styles.config.js --json > ./webpack/styles-output.json && webpack --config webpack/scripts.config.js --json > ./webpack/scripts-output.json && webpack --config webpack/html.config.js --json > ./webpack/html-output.json",
+    "serve": "python3 -m http.server 3000 -d dist/"
   },
   "repository": {
     "type": "git",

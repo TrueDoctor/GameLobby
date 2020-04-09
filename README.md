@@ -8,6 +8,7 @@ A preview is currently hosted under [https://games.kobert.dev](https://games.kob
 ```
 npm install
 npm run build
-$BROWSER ./dist/index.html
+npm run serve
+$BROWSER localhost:3000
 ```
 
